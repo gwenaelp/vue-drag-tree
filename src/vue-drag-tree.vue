@@ -6,7 +6,7 @@
             <span @click="removeChild(model.id)" v-if='model.id !="0"'>&nbsp;x</span>
         </div>
         <div class='treeMargin' v-show="open" v-if="isFolder">
-            <item v-for="model in model.children" :model="model" :key='model.id' :current-highlight='currentHighlight' :default-text='defaultText' 　:hover-color='hoverColor' :highlight-color='highlightColor'>
+            <item v-for="model in model.widgets" :model="model" :key='model.id' :current-highlight='currentHighlight' :default-text='defaultText' 　:hover-color='hoverColor' :highlight-color='highlightColor'>
             </item>
             <div class='changeTree' @click="addChild" @drop='dropPlus' @dragover='dragOverPlus' @dragenter='dragEnterPlus'>+</div>
         </div>
@@ -40,8 +40,8 @@ export default {
     },
     computed: {
         isFolder() {
-            return this.model.children &&
-                this.model.children.length
+            return this.model.widgets &&
+                this.model.widgets.length
         },
     },
     methods: {
